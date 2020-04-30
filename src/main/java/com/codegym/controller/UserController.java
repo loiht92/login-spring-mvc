@@ -15,37 +15,38 @@ public class UserController {
 
     private UserDAO UserDao;
 
-    @GetMapping("/a")
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView("home", "login", new Login());
-        return modelAndView;
-    }
-
-//    public String getHome(Model model){
-//        model.addAttribute("login", new Login());
-//        return "home";
+    @GetMapping("/home")
+//    public ModelAndView home() {
+//        ModelAndView modelAndView = new ModelAndView("home", "login", new Login());
+//        return modelAndView;
 //    }
+    public String getHome(Model model){
+        model.addAttribute("login", new Login());
+        return "home";
+    }
 
     @PostMapping("/login")
-    public ModelAndView login(@ModelAttribute("login") Login login) {
-        User user = UserDao.checkLogin(login);
-        if (user == null) {
-            ModelAndView modelAndView = new ModelAndView("error");
-            return modelAndView;
-        } else {
-            ModelAndView modelAndView = new ModelAndView("user");
-            modelAndView.addObject("user", user);
-            return modelAndView;
-        }
-    }
-//    public String getAccount(@ModelAttribute("login") Login login, Model model){
+//    public ModelAndView login(@ModelAttribute("login") Login login) {
 //        User user = UserDao.checkLogin(login);
-//        if (user == null){
-//            model.addAttribute("error","Ban phai nhap day du thong tin");
-//            return "error";
+//        if (user == null) {
+//            ModelAndView modelAndView = new ModelAndView("error");
+//            return modelAndView;
+//        } else {
+//            ModelAndView modelAndView = new ModelAndView("user");
+//            modelAndView.addObject("user", user);
+//            return modelAndView;
 //        }
-//        model.addAttribute("user", user);
-//        return "user";
-//
 //    }
+
+    public String getAccount(@ModelAttribute("login") Login login, Model model){
+        User user = UserDAO.checkLogin(login);
+        if (user == null){
+            model.addAttribute("error","Ban phai nhap day du thong tin");
+            return "error";
+        }
+        model.addAttribute("user", user);
+        return "user";
+
+    }
+
 }

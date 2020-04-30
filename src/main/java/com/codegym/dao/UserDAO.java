@@ -10,36 +10,38 @@ public class UserDAO {
     private static List<User> users;
     static {
         users = new ArrayList<>();
-        User user1 = new User();
-        user1.setAge(10);
-        user1.setName("John");
-        user1.setAccount("john");
-        user1.setEmail("john@codegym.vn");
-        user1.setPassword("123456");
-        users.add(user1);
 
-        User user2 = new User();
-        user2.setAge(15);
-        user2.setName("Bill");
-        user2.setAccount("bill");
-        user2.setEmail("bill@codegym.vn");
-        user2.setPassword("123456");
-        users.add(user2);
+        User u1 = new User();
+        u1.setAge(10);
+        u1.setName("John");
+        u1.setAccount("john");
+        u1.setEmail("john@codegym.vn");
+        u1.setPassword("123456");
+        users.add(u1);
 
-        User user3 = new User();
-        user3.setAge(16);
-        user3.setName("Mike");
-        user3.setAccount("mike");
-        user3.setEmail("mike@codegym.vn");
-        user3.setPassword("123456");
-        users.add(user3);
+        User u2 = new User();
+        u2.setAge(15);
+        u2.setName("Bill");
+        u2.setAccount("bill");
+        u2.setEmail("bill@codegym.vn");
+        u2.setPassword("1234568");
+        users.add(u2);
+
+        User u3 = new User();
+        u3.setAge(16);
+        u3.setName("Mike");
+        u3.setAccount("mike");
+        u3.setEmail("mike@codegym.vn");
+        u3.setPassword("1234567");
+        users.add(u3);
     }
 
     public static User checkLogin(Login login){
-        for (User user : users){
-            if (user.getAccount().equals(login.getAccount()) &
-                    (user.getPassword().equals(login.getPassword())));
-            return user;
+        for (User u: users) {
+            if(u.getAccount().equals(login.getAccount())
+                    && u.getPassword().equals(login.getPassword())){
+                return u;
+            }
         }
         return null;
     }

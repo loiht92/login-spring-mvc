@@ -7,17 +7,6 @@ public class User {
     private String email;
     private Integer age;
 
-    public User(){
-
-    }
-
-    public User(String account, String password, String name, String email, Integer age){
-        this.account = account;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
 
     public String getAccount() {
         return account;
