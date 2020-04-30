@@ -15,7 +15,7 @@ public class UserController {
 
     private UserDAO UserDao;
 
-    @GetMapping("/home")
+    @GetMapping("/")
 //    public ModelAndView home() {
 //        ModelAndView modelAndView = new ModelAndView("home", "login", new Login());
 //        return modelAndView;
@@ -44,8 +44,8 @@ public class UserController {
             model.addAttribute("error","Ban phai nhap day du thong tin");
             return "error";
         }
-        model.addAttribute("user", user);
-        return "user";
+            model.addAttribute("user", user);
+            return "user";
 
     }
 
